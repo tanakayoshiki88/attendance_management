@@ -1,0 +1,79 @@
+<script type="text/javascript">
+  
+    function getAttendanceFormButton(value) {
+      console.log(value);
+      
+      let attendance = document.getElementById('attendanceMessage');
+      let button = document.getElementById('attendance_button');
+      let transportation_expenses = document.getElementById('transportation_expenses');
+      
+      if(value[1] == "出勤") {
+        attendance.innerHTML = 'おはようございます。交通費を入力し出勤';
+  
+        button.setAttribute('value', "出勤");
+        button.innerHTML = '<i class="far fa-clock mr-1"></i>出勤';
+        
+        transportation_expenses.removeAttribute("style");
+        
+      } else if(value[1] == "退勤") {
+        attendance.innerHTML = 'お疲れ様です。退勤';
+        
+        button.setAttribute('value', "退勤");
+        button.innerHTML = '<i class="far fa-clock mr-1"></i>退勤';
+        
+        // transportation_expenses.style.display = "none";
+        
+      }else{
+        alert("適切なデータを取得できませんでした。管理者に連絡してください。");
+      }
+      
+      let name = document.getElementById('name');
+      name.setAttribute('value', value[0]);
+      
+    }
+    google.script.run.withSuccessHandler(getAttendanceFormButton).getActiveNameLastRow();
+    
+    function isNumber() {
+      // valueが、出勤か？退勤か？
+      let attendance = document.getElementById('attendance_button').getAttribute("value");
+      console.log("attendance:  %s", attendance);
+      
+      if(attendance == "出勤"){
+        // 交通費を取得
+        let value = document.getElementById("transportation_expenses_value").value;
+    
+        // 正規表現　数値のみ指定
+        let regex = /^\d+/;
+    
+        // testメソッドで数値のみか判定
+        let result = regex.test(value);
+    
+        console.log(result);
+    
+        // resultの値がfalseならアラートを表示
+        if(result == false) { 
+          swal.fire({
+            text: "半角数字で交通費を入力してください。",
+            icon: 'info',
+            footer: 'dev.env.88@gmail.com'
+          });
+        }else{
+          ;  // 何もしない
+        }
+    
+        return result;
+      }else if(attendance == "退勤"){
+        return true;
+      }
+    }
+    
+  </script>
+  
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.8.1/dist/sweetalert2.all.min.js" integrity="sha256-Wwm+CQ+crVDzKdbSzjRsw/Kota9INfu02cl8H8oWtpY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  

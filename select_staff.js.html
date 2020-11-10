@@ -1,0 +1,53 @@
+<script  type="text/javascript">
+
+    // コード.jsのgetNameList()をコールして取得した名前のリストをもとに、セレクトボックスを構築する
+    
+      function getNameSelectBox(nameList) {
+                    console.log(nameList);
+    
+                    var select = document.getElementById('select_id1');
+                    var option = document.createElement('option');
+                    option.setAttribute('value', '未選択');
+                    option.setAttribute('selected', true);
+                    option.innerHTML = '未選択';
+                    select.appendChild(option);
+    
+                    for (var i = 0; i < nameList.length; i++) {
+                        option = document.createElement('option');
+                        option.setAttribute('value', nameList[i]);
+                        option.innerHTML = nameList[i];
+                        select.appendChild(option);
+                    }
+      }
+            
+      google.script.run.withSuccessHandler(getNameSelectBox).getNameList();
+      
+     function isName() {
+        // valueが、未選択か否か
+        let name = document.getElementById('select_id1').value;
+        
+        // nameの値が'未選択'ならアラートを表示
+        if(name == "未選択"){
+    
+            swal.fire({
+              text: "名前を選択してください。",
+              icon: 'info',
+              footer: 'dev.env.88@gmail.com'
+            });
+      
+          return false;
+        }else{
+          return true;
+        }
+      }
+      
+    </script>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.8.1/dist/sweetalert2.all.min.js" integrity="sha256-Wwm+CQ+crVDzKdbSzjRsw/Kota9INfu02cl8H8oWtpY=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    

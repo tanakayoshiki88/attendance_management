@@ -1,0 +1,72 @@
+<script type="text/javascript">
+
+    function isValid() {
+      // id='name'に入力された値を取得
+      let name = document.getElementById('name').value;
+      console.log("name: %s", name);
+      // id='hourly_wage'に入力された値を取得
+      let hourly_wage = document.getElementById('hourly_wage').value;
+      // id='phone'に入力された値を取得
+      let phone = document.getElementById('phone').value;
+      console.log("hourly_wage: %s", hourly_wage);
+      // 全角チェック
+      let result_name = name.match(/^[^\x01-\x7E\xA1-\xDF]+$/);
+      console.log("result_name: %s", result_name);
+      // 時給：半角数字チェック
+      let result_hourly_wage = hourly_wage.match(/^\d+$/);
+      console.log("result_hourly_wage: %s", result_hourly_wage);
+      // 電話番号：半角数字チェック
+      let result_phone = phone.match(/^0\d{9,10}$/);
+      console.log("result_phone: %s", result_phone);
+      
+      
+      // result_name,result_hourly_wage,result_phoneの値がnullアラートを表示。
+      if(result_name == null){
+      
+        console.log("名前を全角で入力してください。");
+  
+        swal.fire({
+          text: "名前を全角で入力してください。",
+          icon: 'info',
+          footer: 'dev.env.88@gmail.com'
+        });
+    
+        return false;
+      }else if(result_hourly_wage == null){
+        
+        console.log("時給を半角数字で入力してください。");
+          
+        swal.fire({
+          text: "時給を半角数字で入力してください。",
+          icon: 'info',
+          footer: 'dev.env.88@gmail.com'
+        });
+          
+        return false;
+      }else if(result_phone == null){
+      
+        console.log("電話番号を半角数字で入力してください。");
+        
+        swal.fire({
+          text: "電話番号を半角数字で入力してください。",
+          icon: 'info',
+          footer: 'dev.env.88@gmail.com'
+        });
+          
+        return false;
+      }else{
+        console.log("test5: true");
+        return true;
+      }
+    }
+    
+  </script>
+  
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.8.1/dist/sweetalert2.all.min.js" integrity="sha256-Wwm+CQ+crVDzKdbSzjRsw/Kota9INfu02cl8H8oWtpY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  

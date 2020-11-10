@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <?!= HtmlService.createHtmlOutputFromFile('main.css').getContent(); ?>
+   
+   
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  </head>
+  <body>
+    <div class="contaner-fluid">
+    <div class="site-logo"><a href="<?= getIndexUrl() ?>" class="nav-item nav-link text-white">HOME</a></div>
+    <div class="row">
+        <div class="col mx-5">
+          <table class="table">
+            <thead>
+              <tr class="" id="staff-list-tr">
+                <th class="text-center">ID</th>
+                <th class="text-center">名前</th>
+                <th class="text-center">登録日</th>
+                <th class="text-center">時給</th>
+                <th class="text-center">電話番号</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="staff-list">
+            </tbody>
+          </table>
+          <div class="d-flex justify-content-end">
+            <button type="button" class="btn text-white shadow" onClick="history.back()">
+               <i class="fas fa-chevron-left text-white shadow mr-1"></i>Back
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <?!= HtmlService.createHtmlOutputFromFile('staff_list_for_edit.js').getContent(); ?>
+  </body>
+</html>

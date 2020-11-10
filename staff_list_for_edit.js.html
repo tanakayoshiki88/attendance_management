@@ -1,0 +1,31 @@
+<script type="text/javascript">
+
+    function displayStaffList(value) {
+      console.log("displayStaffList_value: %s", value);
+    
+      let element = document.getElementById('staff-list');
+      console.log("value.length(): %s", value.length);
+      console.log("value[0].length(); %s", value[0].length);
+      let hyper_text = "";
+      
+      for(i=1; i < value.length; i++){
+        hyper_text += "<tr>";
+        for(j=0; j < value[0].length; j++){
+          hyper_text += '<td class="align-middle text-center text-white shadow">' + value[i][j] + '</td>';
+        }
+        hyper_text += '<td><a class="text-white shadow" href="https://script.google.com/macros/s/AKfycbxURmaIvpSb9pQ1xeXoRbYVQDoKneqHlnRfk-a9rc5tFuuZUt0/exec?p=staff_edit&name=' + value[i][1] + '" role="button"><i class="fas fa-user-edit mr-1"></i>Edit</a></td></tr>';
+      }
+      element.insertAdjacentHTML('beforeend', hyper_text);
+    }
+    google.script.run.withSuccessHandler(displayStaffList).getStaffList();
+    
+  </script>
+  
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.8.1/dist/sweetalert2.all.min.js" integrity="sha256-Wwm+CQ+crVDzKdbSzjRsw/Kota9INfu02cl8H8oWtpY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  

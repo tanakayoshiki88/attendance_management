@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <?!= HtmlService.createHtmlOutputFromFile('main.css').getContent(); ?>
+   
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="site-logo"><a href="<?= getIndexUrl() ?>" class="nav-item nav-link text-white">HOME</a></div>
+    <div class="row justify-content-center">
+    <div class="mt-3 ml-3 text-white shadow"><span class="font-weight-bold text-white"><?= getActiveName() ?></span>さん、<span id="attendanceMessage"></span>ボタンを押してください。</div>
+    <p class="text-white shadow"><?!= getMessage() ?></p>
+    </div>
+    <div class="row justify-content-center">
+    <form method="post" class="text-center" id="attendance_form" onSubmit="return isNumber();" action="https://script.google.com/macros/s/AKfycbxURmaIvpSb9pQ1xeXoRbYVQDoKneqHlnRfk-a9rc5tFuuZUt0/exec?p=attendance">
+      <div class="form-group" id="transportation_expenses" style="display: none">
+        <label class="control-label text-white mt-2 shadow">交通費（片道）</label>
+        <div class="">
+          <input type="text" name="transportation_expenses_value" class="form-control input1" id="transportation_expenses_value">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="">
+          <input type="hidden" id="name" name="name" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="justify-content-center">
+          <button id="attendance_button" type="submit" name="value" class="btn btn-dark btn-large">
+          </button>
+        </div>
+      </div>
+    </form>
+    </div>
+    </div>
+    <?!= HtmlService.createHtmlOutputFromFile('attendance.js').getContent(); ?>
+  </body>
+</html>

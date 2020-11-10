@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <?!= HtmlService.createHtmlOutputFromFile('main.css').getContent(); ?>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+  </head>
+  <body>
+    <div class="contaner-fluid">
+      <div class="site-logo"><a href="<?= getIndexUrl() ?>" class="nav-item nav-link text-white">HOME</a></div>
+      <div class="row justify-content-center">
+        <div class="col-3">
+          <form method="post" class="text-center" onSubmit="return isValid();" action="https://script.google.com/macros/s/AKfycbxURmaIvpSb9pQ1xeXoRbYVQDoKneqHlnRfk-a9rc5tFuuZUt0/exec?p=add_staff">
+            <div class="form-group">
+              <label class="control-label col-lg-4 mt-2 text-white shadow">名前</label>
+              <div class="">
+                <input type="text" name="name" class="form-control" id="name">
+              </div>
+            </div>
+    
+            <div class="form-group">
+              <label class="control-label col-lg-4 mt-2 text-white shadow">時給</label>
+              <div class="">
+                <input type="text" name="hourly_wage" class="form-control justify-content-center" id="hourly_wage">
+              </div>
+            </div>
+      
+            <div class="form-group justify-content-center">
+              <label class="control-label col-lg-4 mt-2 text-white shadow">電話番号</label>
+              <div class="">
+                <input type="text" name="phone" class="form-control" id="phone">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="">
+                <button id="send_button" type="submit" class="btn btn-dark btn-large mx-auto">
+                  <i class="fas fa-plus mr-1"></i>Add
+                </button>
+              </div>
+            </div>
+          </form>
+          <div class="d-flex justify-content-end">
+            <button type="button" class="btn text-white shadow" onClick="history.back()">
+               <i class="fas fa-chevron-left text-white shadow mr-1"></i>Back
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <?!= HtmlService.createHtmlOutputFromFile('add_staff.js').getContent(); ?>
+  </body>
+</html>

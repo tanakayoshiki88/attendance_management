@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">s
+    <title>勤怠管理アプリ：目次</title>
+    <!-- Required meta tags for Bootstrap -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <?!= HtmlService.createHtmlOutputFromFile('main.css').getContent(); ?>
+
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="site-logo"><a href="<?= getIndexUrl() ?>" class="nav-item nav-link text-white">HOME</a></div>
+      <h1 class="row justify-content-center">
+        <p class="col-auto text-white shadow font-sonsie">Attendance management</p>
+      </h1>
+      <div class="row justify-content-center">
+        <div class="col-lg-3 col-md-3 col-sm-3">
+          <a class="btn btn-dark w-100 mt-4" href="https://script.google.com/macros/s/AKfycbxURmaIvpSb9pQ1xeXoRbYVQDoKneqHlnRfk-a9rc5tFuuZUt0/exec?p=add_staff" role="button">新規スタッフ登録</a><br>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3">
+          <a class="btn btn-dark w-100 mt-4" href="https://script.google.com/macros/s/AKfycbxURmaIvpSb9pQ1xeXoRbYVQDoKneqHlnRfk-a9rc5tFuuZUt0/exec?p=select_staff_for_attendance" role="button">タイムカード</a><br>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-3 col-md-3 col-sm-3">
+          <a class="btn btn-dark w-100 mt-4" href="https://script.google.com/macros/s/AKfycbxURmaIvpSb9pQ1xeXoRbYVQDoKneqHlnRfk-a9rc5tFuuZUt0/exec?p=staff_list_for_edit" role="button">スタッフ情報編集</a><br>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3">
+          <a class="btn btn-dark w-100 mt-4" href="https://script.google.com/macros/s/AKfycbxURmaIvpSb9pQ1xeXoRbYVQDoKneqHlnRfk-a9rc5tFuuZUt0/exec?p=settings" role="button">設定</a><br>
+        </div>
+      </div>
+    </div>
+    
+    <?!= HtmlService.createHtmlOutputFromFile('alert_message.js').getContent(); ?>
+  </body>
+</html>
+

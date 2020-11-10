@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <?!= HtmlService.createHtmlOutputFromFile('main.css').getContent(); ?>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="site-logo"><a href="<?= getIndexUrl() ?>" class="nav-item nav-link text-white">HOME</a></div>
+      <div class="row justify-content-center">
+      <div class="col-3">
+    <form method="post" onSubmit="return isValid();" action="https://script.google.com/macros/s/AKfycbxURmaIvpSb9pQ1xeXoRbYVQDoKneqHlnRfk-a9rc5tFuuZUt0/exec?p=settings">
+      <div class="form-group">
+        <label class="control-label text-white mt-2 shadow">給与計算単位（分）</label>
+        <div class="">
+          <input type="text" name="minutes" class="form-control" id="minutes">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="">
+          <button id="send_button" type="submit" class="btn btn-dark btn-large mr-2">
+            <i class="far fa-save mr-1"></i>Save
+          </button>
+          <input type="reset" class="btn btn-dark fas reset-btn" value="&#xf0e2; Reset">
+        </div>
+      </div>
+    </form>
+    <div class="d-flex justify-content-end">
+            <button type="button" class="btn text-white shadow" onClick="history.back()">
+               <i class="fas fa-chevron-left text-white shadow mr-1"></i>Back
+            </button>
+          </div>
+    </div>
+    </div>
+    </div>
+    <?!= HtmlService.createHtmlOutputFromFile('settings.js').getContent(); ?>
+  </body>
+</html>
