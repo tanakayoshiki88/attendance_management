@@ -1,7 +1,6 @@
 # attendance_managemet
 
 e-mail: dev.env.88@gmail.com
-pass: 8hiekdmnw466
 
 勤怠管理：
 https://docs.google.com/spreadsheets/d/18eRWEdOviXmWB5l9ZuedHNU83oDtNqCOMyCt3qnvJgc/edit?usp=sharing
